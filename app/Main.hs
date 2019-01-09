@@ -1,6 +1,8 @@
 module Main where
 
-import Lib
+import Domain
+import Dsl
+import Platform
 
 main :: IO ()
-main = someFunc
+main = interpret scanTasks >>= sequence_ . map (putStrLn . name)
